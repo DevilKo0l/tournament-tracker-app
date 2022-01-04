@@ -59,6 +59,7 @@
             this.placeNumberValue.Name = "placeNumberValue";
             this.placeNumberValue.Size = new System.Drawing.Size(195, 35);
             this.placeNumberValue.TabIndex = 24;
+            this.placeNumberValue.TextChanged += new System.EventHandler(this.placeNumberValue_TextChanged);
             // 
             // placeNumberLabel
             // 
@@ -77,6 +78,7 @@
             this.placeNameValue.Name = "placeNameValue";
             this.placeNameValue.Size = new System.Drawing.Size(195, 35);
             this.placeNameValue.TabIndex = 26;
+            this.placeNameValue.TextChanged += new System.EventHandler(this.placeNameValue_TextChanged);
             // 
             // placeNameLabel
             // 
@@ -95,6 +97,7 @@
             this.prizeAmountValue.Name = "prizeAmountValue";
             this.prizeAmountValue.Size = new System.Drawing.Size(195, 35);
             this.prizeAmountValue.TabIndex = 28;
+            this.prizeAmountValue.Text = "0";
             // 
             // prizeAmountLabel
             // 
@@ -113,6 +116,8 @@
             this.prizePercentageValue.Name = "prizePercentageValue";
             this.prizePercentageValue.Size = new System.Drawing.Size(195, 35);
             this.prizePercentageValue.TabIndex = 30;
+            this.prizePercentageValue.Text = "0";
+            this.prizePercentageValue.TextChanged += new System.EventHandler(this.prizePercentageValue_TextChanged);
             // 
             // prizePercentageLabel
             // 

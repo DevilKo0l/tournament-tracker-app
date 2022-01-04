@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackerLibrary;
+using TrackerLibrary.DataAccess;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -41,6 +43,11 @@ namespace TrackerUI
                 {
                     db.CreatePrize(model);
                 }
+
+                placeNameValue.Text = "";
+                placeNumberValue.Text = "";
+                prizeAmountValue.Text = "0";
+                prizePercentageValue.Text = "0";
             }
             else
             {
@@ -50,8 +57,8 @@ namespace TrackerUI
 
         private bool ValidateForm()
         {
+            //Place number box
             bool output = true;
-
             int placeNumber = 0;
             bool placeNumberValidNumber = int.TryParse(placeNumberValue.Text, out placeNumber);
 
@@ -70,11 +77,11 @@ namespace TrackerUI
                 output = false;
             }
 
+            //Place prize amount and prize percentage box
             decimal prizeAmount = 0;
-            int prizePercentage = 0;
-
+            double prizePercentage = 0;
             bool prizeAmountValid = decimal.TryParse(prizeAmountValue.Text, out prizeAmount);
-            bool prizePercentageValid = int.TryParse(prizePercentageValue.Text, out prizePercentage);
+            bool prizePercentageValid = double.TryParse(prizePercentageValue.Text, out prizePercentage);
 
             if(prizeAmountValid == false || prizePercentageValid == false)
             {
@@ -91,6 +98,21 @@ namespace TrackerUI
                 output = false;
             }
             return output;
+        }
+
+        private void placeNumberValue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void placeNameValue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prizePercentageValue_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
