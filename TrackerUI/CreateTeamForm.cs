@@ -17,39 +17,36 @@ namespace TrackerUI
             InitializeComponent();
         }
 
-        private void addMemberButton_Click(object sender, EventArgs e)
+        private void createMemberButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void teamOneScoreValue_TextChanged(object sender, EventArgs e)
+        private bool ValidateForm()
         {
+            // TODO - Add validation to the form
+            if(firstNameTextValue.Text.Length == 0)
+            {
+                return false;
+            }
 
+            if(lastNameTextValue.Text.Length == 0)
+            {
+                return false;
+            }
+
+            if(emailTextValue.Text.Length == 0)
+            {
+                return false;
+            }
+
+            if(cellPhoneLabel.Text.Length == 0)
+            {
+                return false;
+            }
+            return true;
         }
 
-        private void lastNameTextValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deleteSelectedPlayersButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreateTeamForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
