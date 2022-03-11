@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrackerLibrary;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -19,34 +21,84 @@ namespace TrackerUI
 
         private void createMemberButton_Click(object sender, EventArgs e)
         {
+            if(ValidateForm())
+            {
+                PersonModel p = new PersonModel();
+                p.FirstName = firstNameValue.Text;
+                p.LastName = lastNameValue.Text;
+                p.EmailAddress = emailValue.Text;
+                p.CellphoneNumber = cellPhoneValue.Text;
 
+                GlobalConfig.Connection.CreatePerson(p);
+
+                firstNameValue.Text = "";
+                lastNameValue.Text = "";
+                emailValue.Text = "";
+                cellPhoneValue.Text = "";                
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information. Please check it and try again");
+            }
         }
 
         private bool ValidateForm()
         {
             // TODO - Add validation to the form
-            if(firstNameTextValue.Text.Length == 0)
+            if(firstNameValue.Text.Length == 0)
             {
                 return false;
             }
 
-            if(lastNameTextValue.Text.Length == 0)
+            if(lastNameValue.Text.Length == 0)
             {
                 return false;
             }
 
-            if(emailTextValue.Text.Length == 0)
+            if(cellPhoneValue.Text.Length == 0)
             {
                 return false;
             }
 
-            if(cellPhoneLabel.Text.Length == 0)
+            if(emailLabel.Text.Length == 0)
             {
                 return false;
             }
             return true;
         }
+        private void teamOneScoreValue_TextChanged(object sender, EventArgs e)
+        {
 
-       
+        }
+
+        private void lastNameValue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailValue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteSelectedPlayersButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateTeamForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
