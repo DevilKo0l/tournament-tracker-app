@@ -95,7 +95,7 @@
             this.addMemberButton.TabIndex = 19;
             this.addMemberButton.Text = "Add Member";
             this.addMemberButton.UseVisualStyleBackColor = true;
-            this.addMemberButton.Click += new System.EventHandler(this.createMemberButton_Click);
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // selectTeamMemberDropDown
             // 
@@ -168,7 +168,6 @@
             this.emailLabel.Size = new System.Drawing.Size(88, 37);
             this.emailLabel.TabIndex = 27;
             this.emailLabel.Text = "Email:";
-            this.emailLabel.Click += new System.EventHandler(this.eLabel_Click);
             // 
             // cellPhoneValue
             // 
@@ -207,7 +206,6 @@
             this.cellPhoneLabel.Size = new System.Drawing.Size(144, 37);
             this.cellPhoneLabel.TabIndex = 25;
             this.cellPhoneLabel.Text = "Cellphone:";
-            this.cellPhoneLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // firstNameValue
             // 
@@ -252,7 +250,7 @@
             this.deleteSelectedMemberButton.TabIndex = 22;
             this.deleteSelectedMemberButton.Text = "Delete Selected";
             this.deleteSelectedMemberButton.UseVisualStyleBackColor = true;
-            this.deleteSelectedMemberButton.Click += new System.EventHandler(this.deleteSelectedPlayersButton_Click);
+            this.deleteSelectedMemberButton.Click += new System.EventHandler(this.deleteSelectedMemberButton_Click);
             // 
             // createTeamButton
             // 

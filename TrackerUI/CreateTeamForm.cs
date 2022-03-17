@@ -14,9 +14,37 @@ namespace TrackerUI
 {
     public partial class CreateTeamForm : Form
     {
+        private List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
+        private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+
         public CreateTeamForm()
         {
             InitializeComponent();
+            //CreateSampleData();
+            WireUpLists();
+        }       
+        
+        private void WireUpLists()
+        {
+            selectTeamMemberDropDown.DataSource = null;
+
+            selectTeamMemberDropDown.DataSource = availableTeamMembers;
+            selectTeamMemberDropDown.DisplayMember = "FullName";
+
+            teamMemberListBox.DataSource = null;
+
+            teamMemberListBox.DataSource = selectedTeamMembers;
+            teamMemberListBox.DisplayMember = "FullName";
+
+        }
+
+        private void CreateSampleData()
+        {
+            availableTeamMembers.Add(new PersonModel { FirstName = "Nguyen", LastName = "Cao" });
+            availableTeamMembers.Add(new PersonModel { FirstName = "Huy", LastName = "Tran" });
+
+            selectedTeamMembers.Add(new PersonModel { FirstName = "Jane", LastName = "Smith" });
+            selectedTeamMembers.Add(new PersonModel { FirstName = "Bill", LastName = "Jones" });
         }
 
         private void createMemberButton_Click(object sender, EventArgs e)
@@ -29,7 +57,9 @@ namespace TrackerUI
                 p.EmailAddress = emailValue.Text;
                 p.CellphoneNumber = cellPhoneValue.Text;
 
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+                selectedTeamMembers.Add(p);
+                WireUpLists();
 
                 firstNameValue.Text = "";
                 lastNameValue.Text = "";
@@ -76,17 +106,7 @@ namespace TrackerUI
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void emailValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void deleteSelectedPlayersButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -96,9 +116,30 @@ namespace TrackerUI
 
         }
 
-        private void eLabel_Click(object sender, EventArgs e)
+        private void addMemberButton_Click(object sender, EventArgs e)
         {
+            PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
 
+            if (p != null)
+            {
+                availableTeamMembers.Remove(p);
+                selectedTeamMembers.Add(p);
+
+                WireUpLists(); 
+            }
+        }
+
+        private void deleteSelectedMemberButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)teamMemberListBox.SelectedItem;
+
+            if (p != null)
+            {
+                selectedTeamMembers.Remove(p);
+                availableTeamMembers.Add(p);
+
+                WireUpLists(); 
+            }
         }
     }
 }
