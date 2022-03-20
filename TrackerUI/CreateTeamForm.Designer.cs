@@ -175,7 +175,6 @@
             this.cellPhoneValue.Name = "cellPhoneValue";
             this.cellPhoneValue.Size = new System.Drawing.Size(195, 35);
             this.cellPhoneValue.TabIndex = 26;
-            this.cellPhoneValue.TextChanged += new System.EventHandler(this.emailValue_TextChanged);
             // 
             // lastNameValue
             // 
@@ -183,7 +182,6 @@
             this.lastNameValue.Name = "lastNameValue";
             this.lastNameValue.Size = new System.Drawing.Size(195, 35);
             this.lastNameValue.TabIndex = 24;
-            this.lastNameValue.TextChanged += new System.EventHandler(this.lastNameValue_TextChanged);
             // 
             // lastNameLabel
             // 
@@ -213,7 +211,6 @@
             this.firstNameValue.Name = "firstNameValue";
             this.firstNameValue.Size = new System.Drawing.Size(195, 35);
             this.firstNameValue.TabIndex = 22;
-            this.firstNameValue.TextChanged += new System.EventHandler(this.teamOneScoreValue_TextChanged);
             // 
             // firstNameLabel
             // 
@@ -266,6 +263,7 @@
             this.createTeamButton.TabIndex = 25;
             this.createTeamButton.Text = "Create Team";
             this.createTeamButton.UseVisualStyleBackColor = true;
+            this.createTeamButton.Click += new System.EventHandler(this.createTeamButton_Click);
             // 
             // CreateTeamForm
             // 

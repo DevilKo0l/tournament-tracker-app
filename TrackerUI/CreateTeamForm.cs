@@ -96,20 +96,6 @@ namespace TrackerUI
             }
             return true;
         }
-        private void teamOneScoreValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lastNameValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void emailValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void CreateTeamForm_Load(object sender, EventArgs e)
         {
@@ -140,6 +126,18 @@ namespace TrackerUI
 
                 WireUpLists(); 
             }
+        }
+
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel t = new TeamModel();
+
+            t.TeamName = teamNameValue.Text;
+            t.TeamMembers = selectedTeamMembers;
+
+            t = GlobalConfig.Connection.CreateTeam(t);
+
+            //TODO - If we are't closing this form after creation, reset the form
         }
     }
 }
