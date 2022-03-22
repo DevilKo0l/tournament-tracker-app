@@ -12,6 +12,7 @@ namespace TrackerLibrary.DataAccess
     {
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
+        private const string TeamFile = "TeamModels.csv";
 
         public PersonModel CreatePerson(PersonModel model)
         {
