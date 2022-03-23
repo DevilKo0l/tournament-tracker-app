@@ -61,8 +61,8 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 p.Id = int.Parse(cols[0]);
                 p.FirstName = cols[1];
                 p.LastName = cols[2];
-                p.CellphoneNumber = cols[3];
-                p.EmailAddress = cols[4];
+                p.EmailAddress = cols[3];
+                p.CellphoneNumber = cols[4];
                 output.Add(p);
             }
             return output;
@@ -115,6 +115,30 @@ namespace TrackerLibrary.DataAccess.TextHelpers
         public static void SaveToTeamFile(this List<TeamModel> models, string fileName)
         {
             List<string> lines = new List<string>();
+            foreach (TeamModel t in models)
+            {
+                lines.Add($"{t.Id}, {t.TeamName}, {t.TeamMembers}, {ConvertPropleListToString(t.TeamMembers)}");
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
+
+        private static string ConvertPropleListToString(List<PersonModel> people)
+        {
+            string output = "";
+
+            if(people.Count == 0)
+            {
+                return "";
+            }
+            foreach (PersonModel p in people)
+            {
+                output += $"{p.Id}|";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
         }
     }
 }
