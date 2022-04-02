@@ -59,7 +59,6 @@
             this.placeNumberValue.Name = "placeNumberValue";
             this.placeNumberValue.Size = new System.Drawing.Size(195, 35);
             this.placeNumberValue.TabIndex = 24;
-            this.placeNumberValue.TextChanged += new System.EventHandler(this.placeNumberValue_TextChanged);
             // 
             // placeNumberLabel
             // 
@@ -78,7 +77,6 @@
             this.placeNameValue.Name = "placeNameValue";
             this.placeNameValue.Size = new System.Drawing.Size(195, 35);
             this.placeNameValue.TabIndex = 26;
-            this.placeNameValue.TextChanged += new System.EventHandler(this.placeNameValue_TextChanged);
             // 
             // placeNameLabel
             // 
@@ -117,7 +115,6 @@
             this.prizePercentageValue.Size = new System.Drawing.Size(195, 35);
             this.prizePercentageValue.TabIndex = 30;
             this.prizePercentageValue.Text = "0";
-            this.prizePercentageValue.TextChanged += new System.EventHandler(this.prizePercentageValue_TextChanged);
             // 
             // prizePercentageLabel
             // 
@@ -140,7 +137,6 @@
             this.orLabel.Size = new System.Drawing.Size(82, 37);
             this.orLabel.TabIndex = 31;
             this.orLabel.Text = "- Or -";
-            this.orLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // createPrizeButton
             // 
@@ -180,7 +176,6 @@
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "CreatePrizeForm";
             this.Text = "Create Prize";
-            this.Load += new System.EventHandler(this.CreatePrizeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
