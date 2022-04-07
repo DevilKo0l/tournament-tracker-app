@@ -85,7 +85,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 string[] personIds = cols[2].Split('|');
                 foreach (string id in personIds)
                 {
-                    t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).FirstOrDefault());
+                    t.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
                 }
                 output.Add(t);
             }
@@ -107,7 +107,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             List<string> lines = new List<string>();
             foreach (PersonModel p in models)
             {
-                lines.Add($"{p.Id}, {p.FirstName}, {p.LastName}, {p.EmailAddress}, {p.CellphoneNumber}");
+                lines.Add($"{p.Id},{p.FirstName},{p.LastName},{p.EmailAddress},{p.CellphoneNumber}");
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
@@ -117,13 +117,13 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             List<string> lines = new List<string>();
             foreach (TeamModel t in models)
             {
-                lines.Add($"{t.Id}, {t.TeamName}, {t.TeamMembers}, {ConvertPropleListToString(t.TeamMembers)}");
+                lines.Add($"{t.Id},{t.TeamName} ,{ConvertPeopleListToString(t.TeamMembers)}");
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
 
-        private static string ConvertPropleListToString(List<PersonModel> people)
+        private static string ConvertPeopleListToString(List<PersonModel> people)
         {
             string output = "";
 

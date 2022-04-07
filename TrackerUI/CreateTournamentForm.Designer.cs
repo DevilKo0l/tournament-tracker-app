@@ -209,6 +209,7 @@
             this.deleteSelectedPrizeButton.TabIndex = 23;
             this.deleteSelectedPrizeButton.Text = "Delete Selected";
             this.deleteSelectedPrizeButton.UseVisualStyleBackColor = true;
+            this.deleteSelectedPrizeButton.Click += new System.EventHandler(this.deleteSelectedPrizeButton_Click);
             // 
             // prizesLabel
             // 

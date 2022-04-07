@@ -38,13 +38,8 @@ namespace TrackerUI
         {
             InitializeComponent();
             WireUpList();
-        } 
+        }       
         
-        private void CreateTournamentForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void addTeamButton_Click(object sender, EventArgs e)
         {
             TeamModel t = (TeamModel)selectTeamDropDown.SelectedItem;
@@ -56,20 +51,7 @@ namespace TrackerUI
 
                 WireUpList();
             }
-        }
-
-        private void deleteSelectedTeamButton_Click(object sender, EventArgs e)
-        {
-            TeamModel t = (TeamModel)selectTeamDropDown.SelectedItem;
-
-            if(t != null)
-            {
-                selectedTeams.Remove(t);
-                availableTeams.Add(t);
-
-                WireUpList();
-            }
-        }
+        }       
 
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
@@ -96,6 +78,30 @@ namespace TrackerUI
             CreateTeamForm frm = new CreateTeamForm(this);
             frm.Show();
         }
-       
+
+        private void deleteSelectedTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel t = (TeamModel)tournamentTeamsListBox.SelectedItem;
+
+            if(t != null)
+            {
+                selectedTeams.Remove(t);
+                availableTeams.Add(t);
+
+                WireUpList();
+            }
+        }
+
+        private void deleteSelectedPrizeButton_Click(object sender, EventArgs e)
+        {
+            PrizeModel p = (PrizeModel)prizesListBox.SelectedItem;
+
+            if(p != null)
+            {
+                selectedPrizes.Remove(p);
+
+                WireUpList();                
+            }
+        }
     }
 }
