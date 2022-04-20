@@ -119,7 +119,7 @@ namespace TrackerUI
                     MessageBoxIcon.Error);
                 return;
             }
-            // Create Tournament entry
+            // Create Tournament model
             TournamentModel tm = new TournamentModel();
 
             tm.TournamentName = tournamentNameValue.Text;
@@ -127,8 +127,10 @@ namespace TrackerUI
 
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
+            // Create Tournament entry
             // Create all of the prizes entries
             // Create all of team entries
+            GlobalConfig.Connection.CreateTournament(tm);
 
             // Create our matchup
         }
