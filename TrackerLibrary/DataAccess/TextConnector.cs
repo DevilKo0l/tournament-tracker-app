@@ -93,9 +93,12 @@ namespace TrackerLibrary.DataAccess
             }
 
             model.Id = currentId;
-            tournaments.Add(model);
-            tournaments.SaveToTournamentFile();
 
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentFile(TournamentFile);
+
+            return model;
         }
 
         public List<PersonModel> GetPerson_All()

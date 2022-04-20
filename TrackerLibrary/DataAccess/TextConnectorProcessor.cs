@@ -169,13 +169,18 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             List<string> lines = new List<string>();
             foreach(TournamentModel tm in models)
             {
-                lines.Add($"{tm.Id},{t.TournamentName},{tm.EntryFee},{ConvertTeamListToString(tm.EnteredTeams)},{ConvertPrizeListToString(tm.Prizes)}");
+                lines.Add($@"{tm.Id},
+                        {tm.TournamentName},
+                        {tm.EntryFee},
+                        {ConvertTeamListToString(tm.EnteredTeams)},
+                        {ConvertPrizeListToString(tm.Prizes)}");
             }
         }
 
-        private static string ConvertPrizeListToString(List<TeamModel> prizes)
+        private static string ConvertPrizeListToString(List<PrizeModel> prizes)
         {
             string output = "";
+
             if (prizes.Count == 0)
             {
                 return "";
@@ -187,6 +192,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
 
             output = output.Substring(0, output.Length - 1);
+
             return output;
         }
 
