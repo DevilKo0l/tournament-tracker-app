@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrackerLibrary.Models;
 using TrackerLibrary.DataAccess.TextHelpers;
+using TrackerLibrary.Models;
 
 namespace TrackerLibrary.DataAccess
 {
@@ -43,7 +40,7 @@ namespace TrackerLibrary.DataAccess
             //Find the max ID
             int currentId = 1;
 
-            if(prizes.Count > 0)
+            if (prizes.Count > 0)
             {
                 currentId = prizes.OrderByDescending(x => x.Id).First().Id + 1;
             }
@@ -65,7 +62,7 @@ namespace TrackerLibrary.DataAccess
             List<TeamModel> team = TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
 
             int currentId = 1;
-            if(team.Count > 0)
+            if (team.Count > 0)
             {
                 currentId = team.OrderByDescending(x => x.Id).First().Id + 1;
             }
@@ -79,7 +76,7 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
             List<TournamentModel> tournaments = TournamentFile
                 .FullFilePath()
@@ -87,7 +84,7 @@ namespace TrackerLibrary.DataAccess
                 .ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
 
             int currentId = 1;
-            if(tournaments.Count > 0)
+            if (tournaments.Count > 0)
             {
                 currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
             }
@@ -97,8 +94,6 @@ namespace TrackerLibrary.DataAccess
             tournaments.Add(model);
 
             tournaments.SaveToTournamentFile(TournamentFile);
-
-            return model;
         }
 
         public List<PersonModel> GetPerson_All()

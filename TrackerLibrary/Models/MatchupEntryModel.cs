@@ -22,11 +22,7 @@ namespace TrackerLibrary.Models
         /// Represents the matchup that this team cam
         /// from as the winner.
         /// </summary>
-        public MatchupModel ParentMatchup { get; set; }
+        public MatchupModel ParentMatchup { get; set; }       
         
-        public MatchupEntryModel(double initialScore)
-        {
-            Console.WriteLine();
-        }
     }
 }
