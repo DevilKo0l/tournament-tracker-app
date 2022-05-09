@@ -46,7 +46,6 @@
             this.headerLabel.Size = new System.Drawing.Size(385, 50);
             this.headerLabel.TabIndex = 13;
             this.headerLabel.Text = "Tournament Dashboard";
-            this.headerLabel.Click += new System.EventHandler(this.headerLabel_Click);
             // 
             // loadExistingTournamentDropdown
             // 
@@ -66,7 +65,6 @@
             this.loadExistingTournamentLabel.Size = new System.Drawing.Size(322, 37);
             this.loadExistingTournamentLabel.TabIndex = 19;
             this.loadExistingTournamentLabel.Text = "Load Existing Tournament";
-            this.loadExistingTournamentLabel.Click += new System.EventHandler(this.selectTeamMemberLabel_Click);
             // 
             // loadTournamentButton
             // 
@@ -97,6 +95,7 @@
             this.createTournamentButton.TabIndex = 33;
             this.createTournamentButton.Text = "Create Tournament";
             this.createTournamentButton.UseVisualStyleBackColor = true;
+            this.createTournamentButton.Click += new System.EventHandler(this.createTournamentButton_Click);
             // 
             // TournamentDashboardForm
             // 
