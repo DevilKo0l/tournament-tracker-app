@@ -7,44 +7,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
     public partial class TournamentViewerForm : Form
     {
-        public TournamentViewerForm()
+        private TournamentModel tournament;
+        List<int> rounds = new List<int>();
+        List<MatchupModel> selectedMatchups = new List<MatchupModel>();
+        public TournamentViewerForm(TournamentModel tournamentModel)
         {
             InitializeComponent();
+
+            tournament = tournamentModel;
+
+            LoadFormData();
+
+            LoadRounds();
         }
 
-        private void TournamentViewerForm_Load(object sender, EventArgs e)
+        private void LoadFormData()
         {
-
+            tournamentName.Text = tournament.TournamentName;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void WireUpRoundsLists()
         {
-
+            roundDropDown.DataSource = null;
+            roundDropDown.DataSource = rounds;            
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void WireUpMatchupsLists()
+        {            
+            matchupListBox.DataSource = null;
+            matchupListBox.DataSource = selectedMatchups;
+            matchupListBox.DisplayMember = "DisplayName";
+        }
+        private void LoadRounds()
         {
+            rounds = new List<int>();
+            rounds.Add(1);
+            int currRound = 1;
+            foreach (List<MatchupModel> matchups in tournament.Rounds)
+            {
+                if(matchups.First().MatchupRound > currRound)
+                {
+                    currRound = matchups.First().MatchupRound;
+                    rounds.Add(currRound);
+                }
+            }
 
+            WireUpRoundsLists();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void roundDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            LoadMatchups();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void LoadMatchups()
         {
+            int round = (int)roundDropDown.SelectedItem;
 
-        }
-
-        private void scoreButton_Click(object sender, EventArgs e)
-        {
-
+            foreach (List<MatchupModel> matchups in tournament.Rounds)
+            {
+                if(matchups.First().MatchupRound == round)
+                {
+                    selectedMatchups = matchups;
+                }
+            }
+            WireUpMatchupsLists();
         }
     }
 }
