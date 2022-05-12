@@ -250,7 +250,7 @@ namespace TrackerLibrary.DataAccess
                     foreach (MatchupModel m in matchups)
                     {
                         p = new DynamicParameters();
-                        p.Add("@MatchupId", t.Id);
+                        p.Add("@MatchupId", m.Id);
 
                         //Populate Rounds
                         m.Entries = connection.Query<MatchupEntryModel>("dbo.spMatchupEntries_GetByMatchupId", p, commandType: CommandType.StoredProcedure).ToList();
