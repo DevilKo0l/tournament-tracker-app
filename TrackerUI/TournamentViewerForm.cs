@@ -24,11 +24,20 @@ namespace TrackerUI
 
             tournament = tournamentModel;
 
+            tournament.OnTournamentComplete += Tournament_OnTournamentComplete;
+
+            tournament = tournamentModel;
+
             WireUpLists();           
 
             LoadFormData();
 
             LoadRounds();
+        }
+
+        private void Tournament_OnTournamentComplete(object sender, DateTime e)
+        {
+            this.Close();
         }
 
         private void LoadFormData()
@@ -238,7 +247,8 @@ namespace TrackerUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"The application had the following error: {ex.Message}");                
+                MessageBox.Show($"The application had the following error: {ex.Message}");
+                return;
             }
 
             LoadMatchups((int)roundDropDown.SelectedItem);
