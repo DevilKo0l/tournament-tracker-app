@@ -1,3 +1,18 @@
+<div align="center"> 
+
+  <h3 align="center">Tournament Tracker Application</h3>
+
+  <p align="center">
+    Amazing application for tournaments and competitive
+    <br />
+    <a href="#"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="#">View Demo</a>   
+    
+  </p>
+</div>
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 A Tournament tracker that sets up a schedule for teams to play each other in a single-elimination style matchups. I made this project for learning purpose
@@ -13,7 +28,6 @@ The C# "technology" I use in this project inclues:
 * Interfaces
 * Emailing
 * Custom Events 
-* Advanced Debugging
 
 <!-- GETTING STARTED -->
 ## Getting Started
