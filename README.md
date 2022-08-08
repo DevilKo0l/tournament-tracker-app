@@ -45,4 +45,7 @@ You need to [install .Net](https://docs.microsoft.com/en-us/dotnet/core/install/
    ```
 2. Import database
    
-3. Run the project Ctrl + F5
+3. Run the project
+    ```
+    CTRL + F5
+    ```
